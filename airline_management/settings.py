@@ -26,12 +26,6 @@ SECRET_KEY = 'django-insecure-u$j-9&-!%%x#7^^o$3c8hmlga_mq9i-wtl)1-52&l42-uar7ed
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [    'airplanes',
-    'flights',
-    'reservations',
-]
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +35,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'airplanes',
+    'flights',
+    'reservations',
+    'rest_framework',
     
 ]
 
@@ -82,7 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'HOST': 'db',
-        'NAME': os.getedjangorestnv('POSTGRES_DB'),
+        'NAME': os.getenv('POSTGRES_DB'),
         'USER': os.getenv('POSTGRES_USER'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
         'PORT': 5432,
