@@ -1,0 +1,22 @@
+# Ignore Python cache files
+__pycache__
+*.pyc
+*.pyo
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore local settings
+*.local
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore git files
+.git
+.gitignore
+
+# Ignore other unnecessary files
+Airline Management System Specification (EN).pdf
