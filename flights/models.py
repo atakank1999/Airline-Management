@@ -10,10 +10,7 @@ class Flight(models.Model):
     arrival_time = models.DateTimeField()
     airplane = models.ForeignKey(Airplane, on_delete=models.CASCADE)
 
-    def save(self, *args, **kwargs):
-        if not self.reservation_code:
-            self.reservation_code = uuid.uuid4().hex[:6].upper()
-        super().save(*args, **kwargs)
+
 
     def __str__(self):
         return f"{self.flight_number} from {self.departure} to {self.destination}"

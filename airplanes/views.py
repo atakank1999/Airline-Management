@@ -12,6 +12,6 @@ class AirplaneViewSet(viewsets.ModelViewSet):
     @action(detail=True, url_path='flights')
     def flights(self, request, pk=None):
         airplane = self.get_object()
-        flights = airplane.flights.all()
+        flights = airplane.flight_set.all()
         serializer = FlightSerializer(flights, many=True)
         return Response(serializer.data)
