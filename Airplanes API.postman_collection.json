@@ -1,0 +1,453 @@
+{
+	"info": {
+		"_postman_id": "8fefa5ac-aef3-42aa-a5c6-5513b92ee420",
+		"name": "Airplanes API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11838951"
+	},
+	"item": [
+		{
+			"name": "Airplanes",
+			"item": [
+				{
+					"name": "List all airplanes.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{airplaneBaseUrl}}",
+							"host": [
+								"{{airplaneBaseUrl}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get details of a specific airplane.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{airplaneBaseUrl}}1/",
+							"host": [
+								"{{airplaneBaseUrl}}1"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the flights of a specific airplane.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{airplaneBaseUrl}}1/flights",
+							"host": [
+								"{{airplaneBaseUrl}}1"
+							],
+							"path": [
+								"flights"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new airplane.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"tail_number\": \"TC-505\",\n        \"model\": \"Embraer E195\",\n        \"capacity\": 132,\n        \"production_year\": 2016,\n        \"status\": false\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{airplaneBaseUrl}}",
+							"host": [
+								"{{airplaneBaseUrl}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a specific airplane.",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"capacity\": 230\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{airplaneBaseUrl}}1/",
+							"host": [
+								"{{airplaneBaseUrl}}1"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a specific airplane.",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{airplaneBaseUrl}}1/",
+							"host": [
+								"{{airplaneBaseUrl}}1"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Flights",
+			"item": [
+				{
+					"name": "List all flights",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{flightsBaseUrl}}",
+							"host": [
+								"{{flightsBaseUrl}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all flights with destination filtering",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{flightsBaseUrl}}?destination=Dubai",
+							"host": [
+								"{{flightsBaseUrl}}"
+							],
+							"query": [
+								{
+									"key": "destination",
+									"value": "Dubai"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all flights with departure filtering",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{flightsBaseUrl}}?departure=Paris",
+							"host": [
+								"{{flightsBaseUrl}}"
+							],
+							"query": [
+								{
+									"key": "departure",
+									"value": "Paris"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all flights with departure date filtering",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{flightsBaseUrl}}?departure_time=2025-08-05",
+							"host": [
+								"{{flightsBaseUrl}}"
+							],
+							"query": [
+								{
+									"key": "departure_time",
+									"value": "2025-08-05"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all flights with arrival date filtering",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{flightsBaseUrl}}?arrival_time=2026-06-30",
+							"host": [
+								"{{flightsBaseUrl}}"
+							],
+							"query": [
+								{
+									"key": "arrival_time",
+									"value": "2026-06-30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get details of a specific flight",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{flightsBaseUrl}}1/",
+							"host": [
+								"{{flightsBaseUrl}}1"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get reservations made for a specific flight",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{flightsBaseUrl}}1/reservations/",
+							"host": [
+								"{{flightsBaseUrl}}1"
+							],
+							"path": [
+								"reservations",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new flight.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"flight_number\": \"TK2020\",\n        \"departure\": \"Seoul\",\n        \"destination\": \"Los Angeles\",\n        \"departure_time\": \"2026-11-18T23:00:00Z\",\n        \"arrival_time\": \"2026-11-19T12:30:00Z\",\n        \"airplane\": 5\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{flightsBaseUrl}}",
+							"host": [
+								"{{flightsBaseUrl}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a specific flight.",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"flight_number\": \"TK777\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{flightsBaseUrl}}1/",
+							"host": [
+								"{{flightsBaseUrl}}1"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a specific flight",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{flightsBaseUrl}}1/",
+							"host": [
+								"{{flightsBaseUrl}}1"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservations",
+			"item": [
+				{
+					"name": "List all reservations.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{reservationBaseUrl}}",
+							"host": [
+								"{{reservationBaseUrl}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get details of a specific reservation.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{reservationBaseUrl}}1/",
+							"host": [
+								"{{reservationBaseUrl}}1"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new reservation.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"flight\": 2,\n        \"passenger_name\": \"David Martinez\",\n        \"passenger_email\": \"user5@example.com\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{reservationBaseUrl}}",
+							"host": [
+								"{{reservationBaseUrl}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a specific reservation.",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"passenger_name\": \"Jane Doe\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{reservationBaseUrl}}1/",
+							"host": [
+								"{{reservationBaseUrl}}1"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "airplaneBaseUrl",
+			"value": "http://localhost:8000/api/airplanes/",
+			"type": "string"
+		},
+		{
+			"key": "flightsBaseUrl",
+			"value": "http://localhost:8000/api/flights/",
+			"type": "string"
+		},
+		{
+			"key": "reservationBaseUrl",
+			"value": "http://localhost:8000/api/reservations/",
+			"type": "string"
+		}
+	]
+}
