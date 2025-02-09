@@ -1,4 +1,6 @@
 from rest_framework import viewsets
+
+from flights.models import Flight
 from .models import Reservation
 from .serializers import ReservationSerializer
 from rest_framework.response import Response
@@ -13,10 +15,14 @@ class ReservationViewSet(viewsets.ModelViewSet):
         reservation = serializer.save()
         flight = reservation.flight
         subject = f"Reservation for flight {flight.flight_number}"
-        message = f"Dear {reservation.passenger_name},
-        \n\nYou have successfully booked a flight from {flight.departure} to {flight.destination}.
-        \n\nThank you for choosing our airline.
-        \n\n Reservation Code: {reservation.reservation_code},"
+        message = f"""Dear {reservation.passenger_name},
+
+        You have successfully booked a flight from {flight.departure} to {flight.destination}.
+
+        Reservation Code: {reservation.reservation_code}
+        
+        Thank you for choosing our airline.
+        """
 
         recipient_email = reservation.passenger_email
         send_mail(
@@ -28,7 +34,8 @@ class ReservationViewSet(viewsets.ModelViewSet):
         )
         
     def create(self, request, *args, **kwargs):
-        flight = self.get_object().flight
+        flightId = request.data.get('flight')
+        flight = Flight.objects.get(pk=flightId)
         if flight.reservation_set.count() >= flight.airplane.capacity:
             return Response({"message": "Flight is full"}, status=status.HTTP_400_BAD_REQUEST)
         return super().create(request, *args, **kwargs)

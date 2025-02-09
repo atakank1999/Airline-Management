@@ -6,6 +6,7 @@ from .models import Flight
 from .serializers import FlightSerializer
 
 class FlightViewSet(viewsets.ModelViewSet):
+    queryset = Flight.objects.all()
     serializer_class = FlightSerializer
 
     def get_queryset(self):
@@ -21,9 +22,9 @@ class FlightViewSet(viewsets.ModelViewSet):
         if destination:
             queryset = queryset.filter(destination__icontains=destination)
         if departure_time:
-            queryset = queryset.filter(departure_time__icontains=departure_time)
+            queryset = queryset.filter(departure_time__date=departure_time)
         if arrival_time:
-            queryset = queryset.filter(arrival_time__icontains=arrival_time)
+            queryset = queryset.filter(arrival_time__date=arrival_time)
 
         return queryset
 
