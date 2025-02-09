@@ -29,7 +29,7 @@
    ```bash
    docker compose up --build
    ```
-8. **Import Postman collection to test the API **
+8. **Import Postman collection to test the API**
 
 ## Usage
 
